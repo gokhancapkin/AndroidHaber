@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">YazlabHaber</string>
+    <string name="hHeader">TextView</string>
+    <string name="hContent">TextView</string>
+</resources>

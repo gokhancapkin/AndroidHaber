@@ -1,0 +1,83 @@
+﻿
+<div id="body">
+    <section>
+        <h2>Add Record</h2>
+        Haber Başlığı <input id="HaberHeader" type="text" /><br />
+        Haber Türü
+        <select id="tur">
+            <optgroup label="Haber Türleri">
+                <option value="gundem">Gündem</option>
+                <option value="spor">Spor</option>
+                <option value="egitim">Eğitim</option>
+                <option value="ekonomi">Ekonomi</option>
+            </optgroup>
+        </select>
+        <input type="file" id="FileUpload1" />
+        Haber İçeriği <input id="HaberContent" type="text" />
+        <input id="addItem" type="button" value="Haberi Ekle" />
+    </section>
+</div>
+<!--javascript-->
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+        //create a model to save input data
+        var Haberler = {
+            create: function () {
+                tur: "";
+                HaberHeader: "";
+                HaberContent: "";
+                return Haberler;
+            }
+        }
+        //Add a record. method:POST  url:  /api/Haberlers
+        //Request PostHaberler(Haberler item) method in HaberlersController
+        $("#addItem").click(function () {
+            var newHaberler = Haberler.create();
+            newHaberler.tur = $("#tur").val();
+            newHaberler.HaberHeader = $("#HaberHeader").val();
+            newHaberler.HaberContent = $("#HaberContent").val();
+            
+            $.ajax({
+                url: "/api/First",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(newHaberler),
+                dataType: 'json',
+                success: function () {
+                    alert("Success！");//silinecek
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Request failed，info：" + textStatus + "  " + errorThrown);
+                }
+            });
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                $.ajax({
+                    url: '/api/Upload/PostImage',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        alert(result);//silinecek
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+
+</script>

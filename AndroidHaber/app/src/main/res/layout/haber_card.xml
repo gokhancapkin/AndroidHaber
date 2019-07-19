@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Card"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    app:cardCornerRadius="5dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"><![CDATA[>
+
+        ]]>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/HaberImage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_launcher_background" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="100"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/HaberHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_weight="3"
+                        android:text="productAdi"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/haberHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_weight="1"
+                        android:text="productAdi"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/HaberContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Aciklama"
+                    android:textSize="12dp"
+                    android:textStyle="italic" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/yorum"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btnyorum"
+                android:shadowColor="#2F0AA8"
+                android:shadowDx="2"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="yorum yap"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/begen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btnbegen"
+                android:shadowColor="#2F0AA8"
+                android:shadowDx="2"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="beğen"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
